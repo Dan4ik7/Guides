@@ -42,7 +42,7 @@ In order for the NGINX ingress controller to handle TCP traffic, it must be expl
        - --https-port=8443
        - --tcp-services-configmap=nginx-system/nginx-nginx-ingress-controller
    ```
-   - **Why?** This argument tells the ingress controller to look for a ConfigMap that defines how to handle TCP traffic. Without this, the ingress controller will only handle HTTP/HTTPS traffic.
+   -  This argument tells the ingress controller to look for a ConfigMap that defines how to handle TCP traffic. Without this, the ingress controller will only handle HTTP/HTTPS traffic.
 
 3. Save and exit the editor.
 
@@ -66,7 +66,7 @@ The NGINX ingress controller uses a ConfigMap to define TCP services. This Confi
    data:
      "5432": "postgresql/my-release-postgresql:5432"
    ```
-   - **Why?** This entry maps port `5432` on the ingress controller to the PostgreSQL service running in the `postgresql` namespace. Without this mapping, the ingress controller will not know how to forward TCP traffic to PostgreSQL.
+   - This entry maps port `5432` on the ingress controller to the PostgreSQL service running in the `postgresql` namespace. Without this mapping, the ingress controller will not know how to forward TCP traffic to PostgreSQL.
 
 3. Save and exit the editor.
 
@@ -102,7 +102,7 @@ The NGINX ingress controller service must expose the required port (`5432`) so t
        protocol: TCP
        targetPort: 5432
    ```
-   - **Why?** By default, the NGINX ingress controller service only exposes ports `80` and `443`. Adding port `5432` ensures that PostgreSQL traffic can reach the ingress controller.
+   -  By default, the NGINX ingress controller service only exposes ports `80` and `443`. Adding port `5432` ensures that PostgreSQL traffic can reach the ingress controller.
 
 3. Save and exit the editor.
 
@@ -136,7 +136,7 @@ If a `NetworkPolicy` is applied to the NGINX ingress controller, it must allow i
        from:
        - {}
    ```
-   - **Why?** Without this rule, the NGINX ingress controller will block incoming traffic on port `5432`, preventing external clients from connecting to PostgreSQL.
+   -  Without this rule, the NGINX ingress controller will block incoming traffic on port `5432`, preventing external clients from connecting to PostgreSQL.
 
 3. Save and exit the editor.
 
@@ -168,7 +168,7 @@ The PostgreSQL `NetworkPolicy` must allow ingress traffic from the NGINX ingress
        - protocol: TCP
          port: 5432
    ```
-   - **Why?** This ensures that the PostgreSQL pods accept traffic from the NGINX ingress controller on port `5432`.
+   - This ensures that the PostgreSQL pods accept traffic from the NGINX ingress controller on port `5432`.
 
 3. Save and exit the editor.
 
