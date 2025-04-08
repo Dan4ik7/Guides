@@ -206,4 +206,4 @@ After completing the above steps, test the connection to PostgreSQL:
 
 ---
 
-This guide ensures that PostgreSQL is accessible via the NGINX ingress controller in Kubernetes. Let me know if you have any questions!
+This guide ensures that PostgreSQL is accessible via the NGINX ingress controller in Kubernetes
