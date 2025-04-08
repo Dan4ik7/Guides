@@ -148,7 +148,7 @@ If a `NetworkPolicy` is applied to the NGINX ingress controller, it must allow i
 
 ---
 
-### **5. Update the PostgreSQL NetworkPolicy**
+### **5. Update the PostgreSQL NetworkPolicy --optional**
 The PostgreSQL `NetworkPolicy` must allow ingress traffic from the NGINX ingress controller.
 
 #### **Steps:**
