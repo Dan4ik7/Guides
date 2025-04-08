@@ -40,7 +40,7 @@ In order for the NGINX ingress controller to handle TCP traffic, it must be expl
        - --default-backend-service=$(POD_NAMESPACE)/nginx-nginx-ingress-controller-default-backend
        - --http-port=8080
        - --https-port=8443
-       > - --tcp-services-configmap=nginx-system/nginx-nginx-ingress-controller
+       - --tcp-services-configmap=nginx-system/nginx-nginx-ingress-controller
    ```
    -  This argument tells the ingress controller to look for a ConfigMap that defines how to handle TCP traffic. Without this, the ingress controller will only handle HTTP/HTTPS traffic.
 
